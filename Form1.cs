@@ -476,8 +476,11 @@ namespace RegList
 			Reg.RegQueryInfoKey(rk,null,null,IntPtr.Zero,out nrofSubkeys,null,null,out nrofValues,null,null,null,null);
 			StringBuilder name = new StringBuilder(0x100);
 			StringBuilder values = new StringBuilder(0x100);
-			if (nrofSubkeys > 1000)
-				Console.WriteLine("{0} {1}",key,nrofSubkeys);
+            if (nrofSubkeys > 1000)
+            {
+                Console.WriteLine("{0} {1}", key, nrofSubkeys);
+                Application.DoEvents();
+            }
 			if ( time > ModifyDate ) // V103
 				for ( int i=0;i<nrofValues;i++ )
 				{

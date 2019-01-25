@@ -25,7 +25,7 @@ using Microsoft.Win32;
 		public static void Log(string format, params object[] args){Log(0,format,args);}
 		public static void Log(int panel, string format, params object[] args)
 		{
-			if ( !ErrorLogged ) //V1755
+			if ( !ErrorLogged && !StatusBar.InvokeRequired) //V1755
 				StatusBar.Panels[panel].Text = String.Format(format,args);
 		}
 		public static string GetVersion()
